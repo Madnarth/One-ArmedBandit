@@ -1,0 +1,14 @@
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\bin\Debug\One-ArmedBandit.exe.config
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\bin\Debug\One-ArmedBandit.exe
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\bin\Debug\One-ArmedBandit.pdb
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One-ArmedBandit.csprojResolveAssemblyReference.cache
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One_ArmedBandit.Properties.Resources.resources
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One-ArmedBandit.csproj.GenerateResource.Cache
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One-ArmedBandit.exe
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One-ArmedBandit.pdb
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\bin\Debug\MasterBase.mdf
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\bin\Debug\MasterBase_log.ldf
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One_ArmedBandit.MachineScreen.resources
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One_ArmedBandit.LoginScreen.resources
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One_ArmedBandit.RegisterScreen.resources
+C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\obj\Debug\One_ArmedBandit.PlayerInfoScreen.resources
