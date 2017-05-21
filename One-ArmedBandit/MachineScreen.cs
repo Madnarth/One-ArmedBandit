@@ -29,11 +29,14 @@ namespace One_ArmedBandit
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            labPlayerName.Text = "Player: " + MBDB.activePlayer;
-            label3.Text = bet.ToString();
-            pictureBox1.Image = Image.FromFile("2.png");
-            pictureBox2.Image = Image.FromFile("3.png");
-            pictureBox3.Image = Image.FromFile("1.png");
+            var MC = new MachineController();
+            var rand = new Random();
+            labPlayerName.Text = "Player: " + MC.GetActiveName(MBDB.activePlayer);
+            labCash.Text = "Cash: " + MC.GetActiveCash(MBDB.activePlayer);
+            labTokens.Text = "Tokens: " + MC.GetActiveCash(MBDB.activePlayer);
+            pictureBox1.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
+            pictureBox2.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
+            pictureBox3.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
         }
 
         // GENERATES RANDOM NUMBERS
@@ -54,50 +57,44 @@ namespace One_ArmedBandit
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (credits >= bet)
-            {
-                credits = credits - bet;
-                label5.Text = "Credits: " + credits.ToString();
+            //if (credits >= bet)
+            //{
+            //    credits = credits - bet;
+            //    label5.Text = "Credits: " + credits.ToString();
 
-                for (var i = 0; i < 10; i++)
-                {
-                    p1 = IntUtil.Random(1, 4);
-                    p2 = IntUtil.Random(1, 4);
-                    p3 = IntUtil.Random(1, 4);
-                }
+            //    for (var i = 0; i < 10; i++)
+            //    {
+            //        p1 = IntUtil.Random(1, 4);
+            //        p2 = IntUtil.Random(1, 4);
+            //        p3 = IntUtil.Random(1, 4);
+            //    }
 
-                if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
-                pictureBox1.Image = Image.FromFile(p1.ToString() + ".png");
+            //    if (pictureBox1.Image != null) pictureBox1.Image.Dispose();
+            //    pictureBox1.Image = Image.FromFile(p1.ToString() + ".png");
 
-                if (pictureBox2.Image != null) pictureBox2.Image.Dispose();
-                pictureBox2.Image = Image.FromFile(p2.ToString() + ".png");
+            //    if (pictureBox2.Image != null) pictureBox2.Image.Dispose();
+            //    pictureBox2.Image = Image.FromFile(p2.ToString() + ".png");
 
-                if (pictureBox3.Image != null) pictureBox3.Image.Dispose();
-                pictureBox3.Image = Image.FromFile(p3.ToString() + ".png");
+            //    if (pictureBox3.Image != null) pictureBox3.Image.Dispose();
+            //    pictureBox3.Image = Image.FromFile(p3.ToString() + ".png");
 
-                total = 0;
+            //    total = 0;
 
-                // GET RESULTS FROM PAYTABLE
-                // CHECK IF 1, 2 OR 3 OCCURANCES
-                if (p1 == 3) total = total + 5;
+            //    // GET RESULTS FROM PAYTABLE
+            //    // CHECK IF 1, 2 OR 3 OCCURANCES
+            //    if (p1 == 3) total = total + 5;
 
-                if (p1 == 2 & p2 == 2) total = total + 10;
-                if (p1 == 3 & p2 == 3) total = total + 10;
+            //    if (p1 == 2 & p2 == 2) total = total + 10;
+            //    if (p1 == 3 & p2 == 3) total = total + 10;
 
-                if (p1 == 1 & p2 == 1 & p3 == 1) total = total + 20;
-                if (p1 == 2 & p2 == 2 & p3 == 2) total = total + 30;
-                if (p1 == 3 & p2 == 3 & p3 == 3) total = total + 50;
+            //    if (p1 == 1 & p2 == 1 & p3 == 1) total = total + 20;
+            //    if (p1 == 2 & p2 == 2 & p3 == 2) total = total + 30;
+            //    if (p1 == 3 & p2 == 3 & p3 == 3) total = total + 50;
 
-                credits = credits + total;
-                label4.Text = "Win: " + total.ToString();
-                label5.Text = "Credits: " + credits.ToString();
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            PlayerInfoScreen PIS = new PlayerInfoScreen();
-            PIS.Show();
+            //    credits = credits + total;
+            //    label4.Text = "Win: " + total.ToString();
+            //    label5.Text = "Credits: " + credits.ToString();
+            //}
         }
 
         private void MachineScreen_FormClosing(object sender, FormClosingEventArgs e)

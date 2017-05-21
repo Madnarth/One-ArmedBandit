@@ -14,7 +14,8 @@ namespace One_ArmedBandit
         public static string activePlayer;
         public static void GetConnection()
         {
-            string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\MasterBase.mdf;Integrated Security=True;MultipleActiveResultSets=True";
+            //laptop string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\MasterBase.mdf;Integrated Security=True;MultipleActiveResultSets=True";
+            string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Dokumenty\GitHub\One-ArmedBandit\One-ArmedBandit\MasterBase.mdf;Integrated Security=True;MultipleActiveResultSets=True";
             conn = new SqlConnection(connStr);
             conn.Open();
         }
@@ -82,5 +83,11 @@ namespace One_ArmedBandit
                 return false;
             }
         }
+        public static void CreateActivePlayer(string playerName)
+        {
+            var selStmt = new SqlDataAdapter("SELECT PlayerName, Cash, Tokens FROM Player WHERE PlayerName = '" + playerName + "'", conn);
+            var activePlayer = new System.Data.DataTable();
+            selStmt.Fill(activePlayer);
+        }    
     }
 }

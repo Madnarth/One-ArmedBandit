@@ -48,6 +48,7 @@ namespace One_ArmedBandit
                 if (MBDB.LoginPlayer(txtUserName.Text, txtPass.Text) == true)
                 {
                     DialogResult = DialogResult.OK;
+                    MBDB.CreateActivePlayer(txtUserName.Text);
                 }
                 else { MessageBox.Show("Bad username or password.", "Alert"); }
             }

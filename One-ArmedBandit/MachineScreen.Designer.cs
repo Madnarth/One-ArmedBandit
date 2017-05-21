@@ -34,11 +34,12 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labPlayerName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labTokens = new System.Windows.Forms.Label();
+            this.labCash = new System.Windows.Forms.Label();
+            this.labTokensPool = new System.Windows.Forms.Label();
+            this.buttSell = new System.Windows.Forms.Button();
+            this.buttBuy = new System.Windows.Forms.Button();
+            this.buttCollect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -90,62 +91,75 @@
             // 
             this.labPlayerName.AutoSize = true;
             this.labPlayerName.BackColor = System.Drawing.Color.Transparent;
-            this.labPlayerName.Location = new System.Drawing.Point(133, 171);
+            this.labPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labPlayerName.Location = new System.Drawing.Point(6, 153);
             this.labPlayerName.Name = "labPlayerName";
-            this.labPlayerName.Size = new System.Drawing.Size(64, 13);
+            this.labPlayerName.Size = new System.Drawing.Size(78, 13);
             this.labPlayerName.TabIndex = 4;
-            this.labPlayerName.Text = "PlayerName";
+            this.labPlayerName.Text = "PlayerName:";
             // 
-            // label2
+            // labTokens
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(133, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Tokens:";
+            this.labTokens.AutoSize = true;
+            this.labTokens.BackColor = System.Drawing.Color.Transparent;
+            this.labTokens.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labTokens.Location = new System.Drawing.Point(6, 166);
+            this.labTokens.Name = "labTokens";
+            this.labTokens.Size = new System.Drawing.Size(53, 13);
+            this.labTokens.TabIndex = 10;
+            this.labTokens.Text = "Tokens:";
             // 
-            // label3
+            // labCash
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(130, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "BET: 5";
+            this.labCash.AutoSize = true;
+            this.labCash.BackColor = System.Drawing.Color.Transparent;
+            this.labCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labCash.Location = new System.Drawing.Point(6, 179);
+            this.labCash.Name = "labCash";
+            this.labCash.Size = new System.Drawing.Size(39, 13);
+            this.labCash.TabIndex = 11;
+            this.labCash.Text = "Cash:";
             // 
-            // label4
+            // labTokensPool
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(236, 128);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "WIN:";
+            this.labTokensPool.AutoSize = true;
+            this.labTokensPool.BackColor = System.Drawing.Color.Transparent;
+            this.labTokensPool.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labTokensPool.Location = new System.Drawing.Point(130, 124);
+            this.labTokensPool.Name = "labTokensPool";
+            this.labTokensPool.Size = new System.Drawing.Size(117, 13);
+            this.labTokensPool.TabIndex = 12;
+            this.labTokensPool.Text = "Tokens in the pool:";
             // 
-            // button2
+            // buttSell
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.button2.Location = new System.Drawing.Point(30, 171);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(97, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "PLAYER INFO";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttSell.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttSell.Location = new System.Drawing.Point(102, 166);
+            this.buttSell.Name = "buttSell";
+            this.buttSell.Size = new System.Drawing.Size(75, 36);
+            this.buttSell.TabIndex = 13;
+            this.buttSell.Text = "SELL TOKENS";
+            this.buttSell.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // buttBuy
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(27, 128);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "CREDITS:";
+            this.buttBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttBuy.Location = new System.Drawing.Point(183, 166);
+            this.buttBuy.Name = "buttBuy";
+            this.buttBuy.Size = new System.Drawing.Size(75, 36);
+            this.buttBuy.TabIndex = 14;
+            this.buttBuy.Text = "BUY TOKENS";
+            this.buttBuy.UseVisualStyleBackColor = true;
+            // 
+            // buttCollect
+            // 
+            this.buttCollect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttCollect.Location = new System.Drawing.Point(264, 167);
+            this.buttCollect.Name = "buttCollect";
+            this.buttCollect.Size = new System.Drawing.Size(75, 36);
+            this.buttCollect.TabIndex = 15;
+            this.buttCollect.Text = "COLLECT";
+            this.buttCollect.UseVisualStyleBackColor = true;
             // 
             // MachineScreen
             // 
@@ -153,11 +167,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(434, 211);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttCollect);
+            this.Controls.Add(this.buttBuy);
+            this.Controls.Add(this.buttSell);
+            this.Controls.Add(this.labTokensPool);
+            this.Controls.Add(this.labCash);
+            this.Controls.Add(this.labTokens);
             this.Controls.Add(this.labPlayerName);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -183,11 +198,12 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label labPlayerName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labTokens;
+        private System.Windows.Forms.Label labCash;
+        private System.Windows.Forms.Label labTokensPool;
+        private System.Windows.Forms.Button buttSell;
+        private System.Windows.Forms.Button buttBuy;
+        private System.Windows.Forms.Button buttCollect;
     }
 }
 
