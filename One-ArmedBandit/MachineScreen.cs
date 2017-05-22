@@ -12,6 +12,7 @@ namespace One_ArmedBandit
 {
     public partial class MachineScreen : Form
     {
+        MachineController MC = new MachineController();
         public MachineScreen()
         {
             InitializeComponent();
@@ -29,14 +30,8 @@ namespace One_ArmedBandit
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var MC = new MachineController();
-            var rand = new Random();
-            labPlayerName.Text = "Player: " + MC.GetActiveName(MBDB.activePlayer);
-            labCash.Text = "Cash: " + MC.GetActiveCash(MBDB.activePlayer);
-            labTokens.Text = "Tokens: " + MC.GetActiveCash(MBDB.activePlayer);
-            pictureBox1.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
-            pictureBox2.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
-            pictureBox3.Image = Image.FromFile($"Fruit{rand.Next(1, 4)}.png");
+            MC.SetFruits(pictureBox1, pictureBox2, pictureBox3);
+            MC.SetPlayer(labPlayerName, labCash, labTokens, MBDB.activePlayer);            
         }
 
         // GENERATES RANDOM NUMBERS
@@ -57,6 +52,7 @@ namespace One_ArmedBandit
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MC.ChangeTokensPool(10, labTokensPool);
             //if (credits >= bet)
             //{
             //    credits = credits - bet;
