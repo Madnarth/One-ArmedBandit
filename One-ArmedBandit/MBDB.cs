@@ -33,7 +33,7 @@ namespace One_ArmedBandit
         public static List<Player> GetPlayer()
         {
             var playerList = new List<Player>();
-            string selStmt = "SELECT * FROM Player ORDER BY PlayerName";
+            string selStmt = "SELECT * FROM Player ORDER BY Cash DESC";
             var selCmd = new SqlCommand(selStmt, conn);
             try
             {
@@ -88,6 +88,18 @@ namespace One_ArmedBandit
             var selStmt = new SqlDataAdapter("SELECT PlayerName, Cash, Tokens FROM Player WHERE PlayerName = '" + playerName + "'", conn);
             var activePlayer = new System.Data.DataTable();
             selStmt.Fill(activePlayer);
-        }    
+        }
+        public static void ChangePlayerTokens(string playerName, int value)
+        {
+            String selStmt = "UPDATE Player SET Tokens = " + value + " WHERE PlayerName = '" + playerName + "'";
+            var com = new SqlCommand(selStmt, conn);
+            com.ExecuteNonQuery();
+        }
+        public static void ChangePlayerCash(string playerName, int value)
+        {
+            String selStmt = "UPDATE Player SET Cash = " + value + " WHERE PlayerName = '" + playerName + "'";
+            var com = new SqlCommand(selStmt, conn);
+            com.ExecuteNonQuery();
+        }
     }
 }

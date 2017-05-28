@@ -13,6 +13,10 @@ namespace One_ArmedBandit
     public partial class MachineScreen : Form
     {
         MachineController MC = new MachineController();
+        private void RefreshScreen()
+        {
+            MC.SetPlayer(labPlayerName, labCash, labTokens, MBDB.activePlayer);
+        }
         public MachineScreen()
         {
             InitializeComponent();
@@ -21,18 +25,61 @@ namespace One_ArmedBandit
         private void Form1_Load(object sender, EventArgs e)
         {
             MC.SetFruits(pictureBox1, pictureBox2, pictureBox3);
-            MC.SetPlayer(labPlayerName, labCash, labTokens, MBDB.activePlayer);            
+            RefreshScreen();
+            labBet.Text = "Current bet: " + MC.GetBet();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MC.Spin(pictureBox1, pictureBox2, pictureBox3, labTokensPool);
-            //MC.ChangeTokensPool(10, labTokensPool);
+            if (MC.PlayerHaveTokens(MBDB.activePlayer) == true)
+            {
+                MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.PutTokens(MBDB.activePlayer));
+                MC.Spin(pictureBox1, pictureBox2, pictureBox3, labTokensPool);
+                RefreshScreen();
+            }
+            else
+            {
+                MessageBox.Show("Not enough tokens for this bet");
+            }
         }
 
         private void MachineScreen_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (MC.GetTokensPool() > 0)
+            {
+                MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.CollectTokens(MBDB.activePlayer, labTokensPool));
+            }
             MBDB.conn.Close();
         }
-    }
+
+        private void buttCollect_Click(object sender, EventArgs e)
+        {
+            if (MC.GetTokensPool() != 0)
+            {
+                MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.CollectTokens(MBDB.activePlayer, labTokensPool));
+                RefreshScreen();
+            }
+        }
+
+        private void buttSell_Click(object sender, EventArgs e)
+        {
+            MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.RemoveTokens(MBDB.activePlayer));
+            MBDB.ChangePlayerCash(MBDB.activePlayer, MC.SellTokens(MBDB.activePlayer));
+            RefreshScreen();
+        }
+
+        private void buttBuy_Click(object sender, EventArgs e)
+        {
+            if (MC.PlayerHaveCash(MBDB.activePlayer) == true)
+            {
+                MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.AddTokens(MBDB.activePlayer));
+                MBDB.ChangePlayerCash(MBDB.activePlayer, MC.BuyTokens(MBDB.activePlayer));
+                RefreshScreen();
+            }
+            else
+            {
+                MessageBox.Show("Not enough cash to buy tokens");
+            }
+        }
+    } 
 }

@@ -11,6 +11,9 @@ namespace One_ArmedBandit
     public class MachineController
     {
         private int tokensPool;
+        private int bet = 1;
+        private int sellCurrency = 5;
+        private int buyCurrency = 10;
         public enum Fruits { f1 = 1, f2 = 2, f3 = 3 };
 
         public int GetTokensPool()
@@ -22,18 +25,17 @@ namespace One_ArmedBandit
             tokensPool += value;
             l1.Text = "Tokens in the pool: " + tokensPool.ToString();
         }
-        #region hide
-        public string GetActiveName(string activePlayer)
+        public int GetBet()
         {
-            var selStmt = new SqlCommand("SELECT PlayerName FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
-            SqlDataReader reader = selStmt.ExecuteReader();
-            string value = "blank";
-            while (reader.Read())
-            {
-                value = reader["PlayerName"].ToString();
-            }
-            reader.Close();
-            return value;
+            return bet;
+        }
+        public int GetSellCurrency()
+        {
+            return sellCurrency;
+        }
+        public int GetBuyCurrency()
+        {
+            return buyCurrency;
         }
         public int GetActiveCash(string activePlayer)
         {
@@ -48,20 +50,46 @@ namespace One_ArmedBandit
             
             return Convert.ToInt32(value);
         }
-        public int GetActiveTokens(string activePlayer)
+        public bool PlayerHaveTokens(string activePlayer)
         {
-            var selStmt = new SqlCommand("SELECT Cash FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            var selStmt = new SqlCommand("SELECT Tokens FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
             SqlDataReader reader = selStmt.ExecuteReader();
-            string value = "blank";
+            int value = 0;
             while (reader.Read())
             {
-                value = reader["Tokens"].ToString();
+                value += (int)reader["Tokens"];
             }
             reader.Close();
 
-            return Convert.ToInt32(value);
+            if (value - GetBet() >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        #endregion
+        public bool PlayerHaveCash(string activePlayer)
+        {
+            var selStmt = new SqlCommand("SELECT Cash FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            int value = 0;
+            while (reader.Read())
+            {
+                value += (int)reader["Cash"];
+            }
+            reader.Close();
+
+            if (value - GetBuyCurrency() >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void SetFruits(PictureBox p1, PictureBox p2, PictureBox p3)
         {
             var random = new Random();
@@ -104,15 +132,110 @@ namespace One_ArmedBandit
         public void ResolveResults(Fruits[] fruit, Label l1)
         {
             int value = 0;
-            if ((int)fruit[0] == 3) value = 5;
+            if ((int)fruit[0] == 3) value = 1;
 
-            if ((int)fruit[0] == 2 & (int)fruit[1] == 2) value = 10;
-            if ((int)fruit[0] == 3 & (int)fruit[1] == 3) value = 10;
+            if ((int)fruit[0] == 2 & (int)fruit[1] == 2) value = 1;
+            if ((int)fruit[0] == 3 & (int)fruit[1] == 3) value = 2;
 
-            if ((int)fruit[0] == 1 & (int)fruit[1] == 1 & (int)fruit[2] == 1) value = 20;
-            if ((int)fruit[0] == 2 & (int)fruit[1] == 2 & (int)fruit[2] == 2) value = 30;
-            if ((int)fruit[0] == 3 & (int)fruit[1] == 3 & (int)fruit[2] == 3) value = 50;
+            if ((int)fruit[0] == 1 & (int)fruit[1] == 1 & (int)fruit[2] == 1) value = 1;
+            if ((int)fruit[0] == 2 & (int)fruit[1] == 2 & (int)fruit[2] == 2) value = 3;
+            if ((int)fruit[0] == 3 & (int)fruit[1] == 3 & (int)fruit[2] == 3) value = 5;
             ChangeTokensPool(value, l1);
+        }
+        public int CollectTokens(string activePlayer, Label l1)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Tokens FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Tokens"];
+            }
+            reader.Close();
+            value += GetTokensPool();
+            ChangeTokensPool(GetTokensPool()*(-1), l1);
+            return value;
+        }
+        public int PutTokens(string activePlayer)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Tokens FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Tokens"];
+            }
+            reader.Close();
+            if (value != 0)
+            {
+                return value - GetBet();
+            }
+            else
+            {
+                return value;
+            }
+        }
+        public int RemoveTokens(string activePlayer)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Tokens FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Tokens"];
+            }
+            reader.Close();
+            if (value != 0)
+            {
+                return value - 1;
+            }
+            else
+            {
+                return value;
+            }
+        }
+        public int AddTokens(string activePlayer)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Tokens FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Tokens"];
+            }
+            reader.Close();
+            return value + 1;
+        }
+        public int SellTokens(string activePlayer)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Cash FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Cash"];
+            }
+            reader.Close();
+            return value + GetSellCurrency();
+        }
+        public int BuyTokens(string activePlayer)
+        {
+            int value = 0;
+            var selStmt = new SqlCommand("SELECT Cash FROM Player WHERE PlayerName = '" + activePlayer + "'", MBDB.conn);
+            SqlDataReader reader = selStmt.ExecuteReader();
+            while (reader.Read())
+            {
+                value += (int)reader["Cash"];
+            }
+            reader.Close();
+            if (value - GetBuyCurrency() > 0)
+            {
+                return value - GetBuyCurrency();
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

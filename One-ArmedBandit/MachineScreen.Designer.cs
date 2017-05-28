@@ -40,6 +40,7 @@
             this.buttSell = new System.Windows.Forms.Button();
             this.buttBuy = new System.Windows.Forms.Button();
             this.buttCollect = new System.Windows.Forms.Button();
+            this.labBet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -133,33 +134,50 @@
             // 
             // buttSell
             // 
+            this.buttSell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttSell.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttSell.Location = new System.Drawing.Point(102, 166);
             this.buttSell.Name = "buttSell";
             this.buttSell.Size = new System.Drawing.Size(75, 36);
             this.buttSell.TabIndex = 13;
             this.buttSell.Text = "SELL TOKENS";
-            this.buttSell.UseVisualStyleBackColor = true;
+            this.buttSell.UseVisualStyleBackColor = false;
+            this.buttSell.Click += new System.EventHandler(this.buttSell_Click);
             // 
             // buttBuy
             // 
+            this.buttBuy.BackColor = System.Drawing.Color.GreenYellow;
             this.buttBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttBuy.Location = new System.Drawing.Point(183, 166);
             this.buttBuy.Name = "buttBuy";
             this.buttBuy.Size = new System.Drawing.Size(75, 36);
             this.buttBuy.TabIndex = 14;
             this.buttBuy.Text = "BUY TOKENS";
-            this.buttBuy.UseVisualStyleBackColor = true;
+            this.buttBuy.UseVisualStyleBackColor = false;
+            this.buttBuy.Click += new System.EventHandler(this.buttBuy_Click);
             // 
             // buttCollect
             // 
+            this.buttCollect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.buttCollect.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.buttCollect.Location = new System.Drawing.Point(264, 167);
             this.buttCollect.Name = "buttCollect";
             this.buttCollect.Size = new System.Drawing.Size(75, 36);
             this.buttCollect.TabIndex = 15;
             this.buttCollect.Text = "COLLECT";
-            this.buttCollect.UseVisualStyleBackColor = true;
+            this.buttCollect.UseVisualStyleBackColor = false;
+            this.buttCollect.Click += new System.EventHandler(this.buttCollect_Click);
+            // 
+            // labBet
+            // 
+            this.labBet.AutoSize = true;
+            this.labBet.BackColor = System.Drawing.Color.Transparent;
+            this.labBet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labBet.Location = new System.Drawing.Point(130, 137);
+            this.labBet.Name = "labBet";
+            this.labBet.Size = new System.Drawing.Size(74, 13);
+            this.labBet.TabIndex = 16;
+            this.labBet.Text = "Current bet:";
             // 
             // MachineScreen
             // 
@@ -167,6 +185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(434, 211);
+            this.Controls.Add(this.labBet);
             this.Controls.Add(this.buttCollect);
             this.Controls.Add(this.buttBuy);
             this.Controls.Add(this.buttSell);
@@ -204,6 +223,7 @@
         private System.Windows.Forms.Button buttSell;
         private System.Windows.Forms.Button buttBuy;
         private System.Windows.Forms.Button buttCollect;
+        private System.Windows.Forms.Label labBet;
     }
 }
 
