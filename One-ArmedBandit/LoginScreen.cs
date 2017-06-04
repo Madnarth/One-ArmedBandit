@@ -67,5 +67,17 @@ namespace One_ArmedBandit
             MBDB.conn.Close();
             this.Close();
         }
+
+        private void buttCredits_Click(object sender, EventArgs e)
+        {
+            var CS = new CreditsScreen();
+            CS.Show();
+        }
+
+        private void buttHints_Click(object sender, EventArgs e)
+        {
+            var HS = new HintsScreen();
+            HS.Show();
+        }
     }
 }

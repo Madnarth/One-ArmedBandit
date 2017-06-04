@@ -16,11 +16,10 @@ namespace One_ArmedBandit
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginScreen LS = new LoginScreen();
+            var LS = new LoginScreen();
             if(LS.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new MachineScreen());
-
             }
         }
     }

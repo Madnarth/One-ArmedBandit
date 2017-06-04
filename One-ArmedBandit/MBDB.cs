@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace One_ArmedBandit
 {
@@ -14,8 +15,7 @@ namespace One_ArmedBandit
         public static string activePlayer;
         public static void GetConnection()
         {
-            //laptop string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Paweł\Documents\GitHub\Leja\One-ArmedBandit\One-ArmedBandit\MasterBase.mdf;Integrated Security=True;MultipleActiveResultSets=True";
-            string connStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Dokumenty\GitHub\One-ArmedBandit\One-ArmedBandit\MasterBase.mdf;Integrated Security=True;MultipleActiveResultSets=True";
+            string connStr = ConfigurationManager.ConnectionStrings["Connection"].ConnectionString;
             conn = new SqlConnection(connStr);
             conn.Open();
         }

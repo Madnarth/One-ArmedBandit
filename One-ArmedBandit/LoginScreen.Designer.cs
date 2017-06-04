@@ -43,13 +43,15 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.buttCredits = new System.Windows.Forms.Button();
+            this.buttHints = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttLogin
             // 
             this.buttLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttLogin.Location = new System.Drawing.Point(136, 228);
+            this.buttLogin.Location = new System.Drawing.Point(136, 226);
             this.buttLogin.Name = "buttLogin";
             this.buttLogin.Size = new System.Drawing.Size(75, 23);
             this.buttLogin.TabIndex = 3;
@@ -81,7 +83,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(43, 228);
+            this.button2.Location = new System.Drawing.Point(43, 226);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 23);
             this.button2.TabIndex = 2;
@@ -92,7 +94,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(217, 228);
+            this.button3.Location = new System.Drawing.Point(217, 226);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 4;
@@ -171,12 +173,36 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Password";
             // 
+            // buttCredits
+            // 
+            this.buttCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttCredits.Location = new System.Drawing.Point(171, 255);
+            this.buttCredits.Name = "buttCredits";
+            this.buttCredits.Size = new System.Drawing.Size(75, 23);
+            this.buttCredits.TabIndex = 12;
+            this.buttCredits.Text = "CREDITS";
+            this.buttCredits.UseVisualStyleBackColor = true;
+            this.buttCredits.Click += new System.EventHandler(this.buttCredits_Click);
+            // 
+            // buttHints
+            // 
+            this.buttHints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttHints.Location = new System.Drawing.Point(90, 255);
+            this.buttHints.Name = "buttHints";
+            this.buttHints.Size = new System.Drawing.Size(75, 23);
+            this.buttHints.TabIndex = 13;
+            this.buttHints.Text = "HINTS";
+            this.buttHints.UseVisualStyleBackColor = true;
+            this.buttHints.Click += new System.EventHandler(this.buttHints_Click);
+            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(334, 261);
+            this.ClientSize = new System.Drawing.Size(334, 281);
+            this.Controls.Add(this.buttHints);
+            this.Controls.Add(this.buttCredits);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUserName);
@@ -187,6 +213,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -213,5 +242,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ColumnHeader Cash;
         private System.Windows.Forms.ColumnHeader Tokens;
+        private System.Windows.Forms.Button buttCredits;
+        private System.Windows.Forms.Button buttHints;
     }
 }
