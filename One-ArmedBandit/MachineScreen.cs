@@ -29,17 +29,13 @@ namespace One_ArmedBandit
             labBet.Text = "Current bet: " + MC.GetBet();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttSpin_Click(object sender, EventArgs e)
         {
             if (MC.PlayerHaveTokens(MBDB.activePlayer) == true)
             {
                 MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.PutTokens(MBDB.activePlayer));
                 MC.Spin(pictureBox1, pictureBox2, pictureBox3, labTokensPool);
                 RefreshScreen();
-            }
-            else
-            {
-                MessageBox.Show("Not enough tokens for this bet");
             }
         }
 
@@ -63,9 +59,16 @@ namespace One_ArmedBandit
 
         private void buttSell_Click(object sender, EventArgs e)
         {
-            MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.RemoveTokens(MBDB.activePlayer));
-            MBDB.ChangePlayerCash(MBDB.activePlayer, MC.SellTokens(MBDB.activePlayer));
-            RefreshScreen();
+            if (MC.PlayerHaveTokens(MBDB.activePlayer) == true)
+            {
+                MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.RemoveTokens(MBDB.activePlayer));
+                MBDB.ChangePlayerCash(MBDB.activePlayer, MC.SellTokens(MBDB.activePlayer));
+                RefreshScreen(); 
+            }
+            else
+            {
+                MessageBox.Show("Not enough tokens for this operation");
+            }
         }
 
         private void buttBuy_Click(object sender, EventArgs e)
@@ -80,6 +83,17 @@ namespace One_ArmedBandit
             {
                 MessageBox.Show("Not enough cash to buy tokens");
             }
+        }
+
+        private void buttHints_Click(object sender, EventArgs e)
+        {
+            var HS = new HintsScreen();
+            HS.Show();
+        }
+
+        private void buttExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     } 
 }

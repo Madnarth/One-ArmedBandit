@@ -132,10 +132,10 @@ namespace One_ArmedBandit
         public void ResolveResults(Fruits[] fruit, Label l1)
         {
             int value = 0;
-            if ((int)fruit[0] == 3) value = 1;
+            if ((int)fruit[0] == 3 || (int)fruit[1] == 3 || (int)fruit[2] == 3) value = 1;
 
-            if ((int)fruit[0] == 2 & (int)fruit[1] == 2) value = 1;
-            if ((int)fruit[0] == 3 & (int)fruit[1] == 3) value = 2;
+            if (((int)fruit[0] == 2 & (int)fruit[1] == 2) || ((int)fruit[1] == 2 & (int)fruit[2] == 2)) value = 1;
+            if (((int)fruit[0] == 3 & (int)fruit[1] == 3) || ((int)fruit[1] == 3 & (int)fruit[2] == 3)) value = 2;
 
             if ((int)fruit[0] == 1 & (int)fruit[1] == 1 & (int)fruit[2] == 1) value = 1;
             if ((int)fruit[0] == 2 & (int)fruit[1] == 2 & (int)fruit[2] == 2) value = 3;
