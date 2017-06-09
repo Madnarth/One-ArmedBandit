@@ -35,7 +35,12 @@ namespace One_ArmedBandit
             {
                 MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.PutTokens(MBDB.activePlayer));
                 MC.Spin(pictureBox1, pictureBox2, pictureBox3, labTokensPool);
+                labAlert.Text = "Alert:";
                 RefreshScreen();
+            }
+            else
+            {
+                labAlert.Text = labAlert.Text = "Alert: " + MC.GetAlert(1);
             }
         }
 
@@ -53,7 +58,12 @@ namespace One_ArmedBandit
             if (MC.GetTokensPool() != 0)
             {
                 MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.CollectTokens(MBDB.activePlayer, labTokensPool));
+                labAlert.Text = "Alert:";
                 RefreshScreen();
+            }
+            else
+            {
+                labAlert.Text = labAlert.Text = "Alert: " + MC.GetAlert(3);
             }
         }
 
@@ -63,25 +73,27 @@ namespace One_ArmedBandit
             {
                 MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.RemoveTokens(MBDB.activePlayer));
                 MBDB.ChangePlayerCash(MBDB.activePlayer, MC.SellTokens(MBDB.activePlayer));
+                labAlert.Text = "Alert:";
                 RefreshScreen(); 
             }
             else
             {
-                MessageBox.Show("Not enough tokens for this operation");
+                labAlert.Text = labAlert.Text = "Alert: " + MC.GetAlert(0);
             }
         }
-
+        
         private void buttBuy_Click(object sender, EventArgs e)
         {
             if (MC.PlayerHaveCash(MBDB.activePlayer) == true)
             {
                 MBDB.ChangePlayerTokens(MBDB.activePlayer, MC.AddTokens(MBDB.activePlayer));
                 MBDB.ChangePlayerCash(MBDB.activePlayer, MC.BuyTokens(MBDB.activePlayer));
+                labAlert.Text = "Alert:";
                 RefreshScreen();
             }
             else
             {
-                MessageBox.Show("Not enough cash to buy tokens");
+                labAlert.Text = "Alert: " + MC.GetAlert(2);
             }
         }
 

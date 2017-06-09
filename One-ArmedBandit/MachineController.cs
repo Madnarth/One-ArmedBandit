@@ -14,8 +14,13 @@ namespace One_ArmedBandit
         private int bet = 1;
         private int sellCurrency = 5;
         private int buyCurrency = 10;
+        private readonly string[] alerts =
+            {"Not enough tokens for this operation",
+            "Not enough tokens for this bet",
+            "Not enough cash to buy tokens",
+            "Tokens pool is empty"};
         public enum Fruits { f1 = 1, f2 = 2, f3 = 3 };
-
+        
         public int GetTokensPool()
         {
             return tokensPool;
@@ -36,6 +41,10 @@ namespace One_ArmedBandit
         public int GetBuyCurrency()
         {
             return buyCurrency;
+        }
+        public string GetAlert(int index)
+        {
+            return alerts[index];
         }
         public int GetActiveCash(string activePlayer)
         {

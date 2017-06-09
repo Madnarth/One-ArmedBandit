@@ -39,7 +39,7 @@ namespace One_ArmedBandit
                     }
                     else { MessageBox.Show("User already exist.", "Alert"); }
                 }
-                else { MessageBox.Show("Player name and password should have at least 4 characters.", "Alert"); }
+                else { MessageBox.Show("Player name should have at least 4 characters and password 6 characters.", "Alert"); }
             }
             catch (Exception ex)
             {

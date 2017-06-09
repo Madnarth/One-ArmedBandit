@@ -43,6 +43,7 @@
             this.labBet = new System.Windows.Forms.Label();
             this.buttHints = new System.Windows.Forms.Button();
             this.buttExit = new System.Windows.Forms.Button();
+            this.labAlert = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -211,6 +212,18 @@
             this.buttExit.UseVisualStyleBackColor = false;
             this.buttExit.Click += new System.EventHandler(this.buttExit_Click);
             // 
+            // labAlert
+            // 
+            this.labAlert.AutoSize = true;
+            this.labAlert.BackColor = System.Drawing.Color.Transparent;
+            this.labAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labAlert.ForeColor = System.Drawing.Color.Red;
+            this.labAlert.Location = new System.Drawing.Point(78, 10);
+            this.labAlert.Name = "labAlert";
+            this.labAlert.Size = new System.Drawing.Size(47, 17);
+            this.labAlert.TabIndex = 19;
+            this.labAlert.Text = "Alert:";
+            // 
             // MachineScreen
             // 
             this.AcceptButton = this.buttSpin;
@@ -219,6 +232,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.CancelButton = this.buttExit;
             this.ClientSize = new System.Drawing.Size(409, 231);
+            this.Controls.Add(this.labAlert);
             this.Controls.Add(this.buttExit);
             this.Controls.Add(this.buttHints);
             this.Controls.Add(this.labBet);
@@ -265,6 +279,7 @@
         private System.Windows.Forms.Label labBet;
         private System.Windows.Forms.Button buttHints;
         private System.Windows.Forms.Button buttExit;
+        private System.Windows.Forms.Label labAlert;
     }
 }
 
